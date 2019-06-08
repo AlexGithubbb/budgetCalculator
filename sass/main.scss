@@ -1,3 +1,8 @@
+$ipad-pro: 65em; // 1040px /16px
+$ipad: 50em; // 800px /16px
+$phone: 25.5em;// 456px/16px
+$iphone: 25em;// 400px/16px
+
 /**********************************************
 *** GENERAL
 **********************************************/
@@ -16,7 +21,7 @@
 
 body {
     color: #555;
-    font-family: Open Sans;
+    font-family: "Open Sans";
     font-size: 16px;
     position: relative;
     height: 100vh;
@@ -33,7 +38,7 @@ body {
 
 .top {
     height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(back.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(../back.png);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -49,11 +54,22 @@ body {
 }
 
 .budget__title {
-    font-size: 18px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 300;
+    @media only screen and(max-width:$ipad){
+      font-size: 25px;
+     }
+}
+/* @media only screen and(max-width: 28.5em){
+    .budget__title {
+    font-size: 30px;
     text-align: center;
     margin-bottom: 10px;
     font-weight: 300;
 }
+    } */
 
 .budget__value {
     font-weight: 300;
@@ -67,11 +83,17 @@ body {
 .budget__expenses {
     padding: 12px;
     text-transform: uppercase;
+    @media only screen and(max-width:$ipad){
+       padding: 15px;
+    }
 }
 
 .budget__income {
     margin-bottom: 10px;
     background-color: #28B9B5;
+     @media only screen and(max-width:$ipad){
+       margin-bottom: 20px;
+    }
 }
 
 .budget__expenses {
@@ -81,15 +103,21 @@ body {
 .budget__income--text,
 .budget__expenses--text {
     float: left;
-    font-size: 13px;
+    font-size: 15px;
     color: #444;
     margin-top: 2px;
+     @media only screen and(max-width:$ipad){
+       font-size: 18px;
+    }
 }
 
 .budget__income--value,
 .budget__expenses--value {
     letter-spacing: 1px;
     float: left;
+     @media only screen and(max-width:$ipad){
+       font-size: 20px;
+    }
 }
 
 .budget__income--percentage,
@@ -99,6 +127,10 @@ body {
     font-size: 11px;
     padding: 3px 0;
     margin-left: 10px;
+     @media only screen and(max-width:$ipad){
+       font-size: 15px;
+    }
+    
 }
 
 .budget__expenses--percentage {
@@ -117,6 +149,9 @@ body {
     padding: 14px;
     border-bottom: 1px solid #e7e7e7;
     background-color: #f7f7f7;
+     @media only screen and(max-width:$ipad){
+      padding: 20px;
+     }
 }
 
 .add__container {
@@ -147,10 +182,28 @@ body {
     margin-right: 10px;
     border-radius: 5px;
     transition: border 0.3s;
+    @media only screen and(max-width:$ipad){
+      padding: 15px 20px;
+      font-size: 17px;
+     }
 }
 
-.add__description { width: 400px;}
-.add__value { width: 100px;}
+.add__description { width: 400px;
+    @media only screen and(max-width:$ipad){
+     width: 300px;
+     }
+    @media only screen and(max-width:$phone){
+     width: 200px;
+     margin-bottom: .5rem;
+     }}
+.add__value { width: 100px;
+@media only screen and(max-width:$ipad){
+     width: 200px;
+     }
+    @media only screen and(max-width:$phone){
+     width: 100px;
+     transform: translateX(.5rem);
+     }}
 
 .add__btn {
     font-size: 35px;
@@ -162,6 +215,9 @@ body {
     vertical-align: middle;
     line-height: 1.1;
     margin-left: 10px;
+    @media only screen and(max-width:$ipad){
+      font-size: 40px;
+     }
 }
 
 .add__btn:active { transform: translateY(2px); }
@@ -177,26 +233,37 @@ body {
 
 /***** LISTS *****/
 .container {
-    width: 1000px;
+    width: 100%;
     margin: 60px auto;
+    display: flex;
+    &>*{
+      margin-left: 2rem;
+    }
+    @media only screen and(max-width:$phone){
+      display: flex;
+      flex-direction: column;
+
+     }
 }
 
-.income {
-    float: left;
-    width: 475px;
-    margin-right: 50px;
-}
-
+.income,
 .expenses {
-    float: left;
-    width: 475px;
+    width: 45%;
+    @media only screen and(max-width:$ipad){
+      width: 80%;
+      &:not(:last-child){
+        margin-bottom: 2rem;
+      }
+     }
 }
+
 
 h2 {
     text-transform: uppercase;
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 15px;
+
 }
 
 .icome__title { color: #28B9B5; }
@@ -205,6 +272,12 @@ h2 {
 .item {
     padding: 13px;
     border-bottom: 1px solid #e7e7e7;
+    @media only screen and(max-width:$ipad){
+      padding: 17px;
+    }
+    @media only screen and(max-width:$phone){
+      padding: 30px;
+    }
 }
 
 .item:first-child { border-top: 1px solid #e7e7e7; }
